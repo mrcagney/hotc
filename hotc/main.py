@@ -75,6 +75,11 @@ def get_hotc(dates, period, date_format=DATE_FORMAT, as_df=True):
     form output by the function :func:`to_df`.
     Otherwise, the parsed response is the dictionary
     {'period': ``period``, 'records': response as JSON}.
+
+    NOTES:
+
+    - A Heart of the City day runs from 06:00:00 on a given date to
+      05:59:59 on the following date.
     """
     periods = ['day', 'week', 'month', 'year']
     if period not in periods:
