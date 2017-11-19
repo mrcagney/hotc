@@ -5,8 +5,7 @@ A Python 3.4+ library to issue asynchronous GET requests to the Heart of the Cit
 
 Installation
 =============
-``pipenv install git+https://github.com/araichev/mustaching``
-
+``pipenv install -e git+https://github.com/araichev/hotc#egg=hotc``
 
 Usage
 ======

@@ -9,7 +9,7 @@ with open('LICENSE.txt') as f:
 
 setup(
     name='hotc',
-    version=0.0.0,
+    version='0.0.0',
     author='Alex Raichev',
     url='https://github.com/araichev/hotc',
     description='A Python 3.4+ library to get Heart of the City walking counts for Auckland, New Zealand',
