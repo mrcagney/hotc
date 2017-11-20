@@ -17,7 +17,7 @@ setup(
     license=license,
     install_requires=[
         'pandas>=0.20',
-        'requests-futures==0.9.7',
+        'requests-futures>=0.9.7',
     ],
     packages=find_packages(exclude=('tests', 'docs'))
 )
