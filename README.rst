@@ -1,11 +1,13 @@
 Heart of the City
 ******************
 A Python 3.5+ library to issue asynchronous GET requests to the Heart of the City API to get walking counts for center city Auckland, New Zealand.
+The API has access to counts from 2012-01-23 to the present.
 
 
 Installation
 =============
 ``pipenv install -e git+https://github.com/araichev/hotc#egg=hotc``
+
 
 Usage
 ======
