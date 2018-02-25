@@ -94,7 +94,7 @@ def get_hotc(dates, period, date_format=DATE_FORMAT, as_df=True):
           '%m/%d/%Y')
 
     def parse(date, session, response):
-        if response.status_code == 200:
+        if response.status_code == 200 and response.json():
             data = (date, parse_hotc(period, response, as_df))
         else:
             data = None
