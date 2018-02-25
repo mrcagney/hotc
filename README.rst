@@ -27,6 +27,12 @@ Authors
 Changes
 ========
 
+v1.0.1, 2018-02-26
+-------------------
+- Fixed error in case of empty HTTP 200 response
+- Corrected version number
+
+
 v0.0.0, 2017-11-17
 -------------------
 - First release
