@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "hotc"
+version = "1.0.3"
+description = "A Python 3.6+ library to issue asynchronous GET requests to the Heart of the City API to get walking counts for center city Auckland, New Zealand. The API has access to counts from 2012-01-23 to the present."
+authors = ["Alex Raichev <araichev@mrcagney.com>"]
+license="MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+requests-futures = "^0.9.9"
+pandas = "^0.23.4"
+
+[tool.poetry.dev-dependencies]
+jupyter = "^1.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
