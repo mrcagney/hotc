@@ -93,16 +93,19 @@ def get_hotc(dates, period, date_format=DATE_FORMAT, as_df=True):
         return dt.datetime.strptime(date, date_format).strftime(
           "%m/%d/%Y")
 
-    def parse(date, session, response):
+    def parse(response, date, *args, **kwargs):
         if response.status_code == 200 and response.json():
             data = (date, parse_hotc(period, response, as_df))
         else:
             data = None
         response.data = data
 
-    futures = (session.get(url,
-      params={"method": period, "date": format_date(date)},
-      background_callback=partial(parse, date))
-      for date in dates)
+    futures = (
+        session.get(
+            url,
+            params={"method": period, "date": format_date(date)},
+            hooks={"response": partial(parse, date=date)}
+        ) for date in dates
+    )
 
     return dict([f.result().data for f in futures if f.result().data])

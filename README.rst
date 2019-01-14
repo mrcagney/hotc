@@ -6,7 +6,7 @@ The API has access to counts from 2012-01-23 to the present.
 
 Installation
 =============
-``pipenv install -e git+https://github.com/mrcagney/hotc#egg=hotc``
+``poetry add --git https://github.com/mrcagney/hotc hotc``
 
 
 Usage
@@ -29,17 +29,23 @@ Authors
 Changes
 ========
 
-v1.0.2, 2018-11-07
--------------------
+1.0.3, 2019-01-14
+-----------------
+- Switched to Poetry.
+- Fixed ``requests-futures`` deprecation warnings.
+
+
+1.0.2, 2018-11-07
+-----------------
 - Updated API URL.
 
 
-v1.0.1, 2018-02-26
--------------------
+1.0.1, 2018-02-26
+-----------------
 - Fixed error in case of empty HTTP 200 response.
 - Corrected version number.
 
 
-v0.0.0, 2017-11-17
+0.0.0, 2017-11-17
 -------------------
 - First release.
