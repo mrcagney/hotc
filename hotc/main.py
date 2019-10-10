@@ -1,9 +1,8 @@
 from pathlib import Path
 import os
 import datetime as dt
-from functools import partial
 
-from requests_futures.sessions import FuturesSession
+import requests
 import pandas as pd
 
 
@@ -12,7 +11,6 @@ _DATA_DIR = _ROOT/"data"
 COUNTERS = pd.read_csv(_DATA_DIR/"hotc_counters.csv")
 
 DATE_FORMAT = "%Y-%m-%d"
-MAX_WORKERS = 30
 
 def to_df(hotc_data):
     """
@@ -62,19 +60,16 @@ def parse_hotc(period, response, as_df=True):
 
     return result
 
-def get_hotc(dates, period, date_format=DATE_FORMAT, as_df=True):
+def get_hotc(date, period, date_format=DATE_FORMAT, as_df=True):
     """
-    Issue asynchronous GET requests to the Heart of the City API to get
-    walking counts for the given list of dates (date strings in the
+    Issue a GET request to the Heart of the City API to get
+    walking counts for the given date (date string in the
     format ``date_format``) and period (one of ``"day"``, ``"week"``,
     ``"month"``, or ``"year"``).
-    Return a dictionary of the form date -> parsed response, only
-    including dates for which a valid response was received.
+    Return the resulting JSON response (dictionary) or None if no response.
 
-    If ``as_df``, then the parsed response is a DataFrame of the
+    If ``as_df``, then the parse the response as a DataFrame of the
     form output by the function :func:`to_df`.
-    Otherwise, the parsed response is the dictionary
-    {"period": ``period``, "records": response as JSON}.
 
     NOTES:
 
@@ -85,7 +80,6 @@ def get_hotc(dates, period, date_format=DATE_FORMAT, as_df=True):
     if period not in periods:
         raise ValueError("Period must lie in {!s}".format(periods))
 
-    session = FuturesSession(max_workers=MAX_WORKERS)
     url = "https://www.heartofthecity.co.nz/pedestrian-count/api/reveal"
 
     def format_date(date):
@@ -93,19 +87,14 @@ def get_hotc(dates, period, date_format=DATE_FORMAT, as_df=True):
         return dt.datetime.strptime(date, date_format).strftime(
           "%m/%d/%Y")
 
-    def parse(response, date, *args, **kwargs):
+    def parse(response):
         if response.status_code == 200 and response.json():
-            data = (date, parse_hotc(period, response, as_df))
+            result = parse_hotc(period, response, as_df)
         else:
-            data = None
-        response.data = data
+            result = None
+        return result
 
-    futures = (
-        session.get(
-            url,
-            params={"method": period, "date": format_date(date)},
-            hooks={"response": partial(parse, date=date)}
-        ) for date in dates
-    )
-
-    return dict([f.result().data for f in futures if f.result().data])
+    return parse(requests.get(
+        url,
+        params={"method": period, "date": format_date(date)},
+    ))
