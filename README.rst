@@ -29,6 +29,12 @@ Authors
 Changes
 ========
 
+2.0.0, 2019-10-11
+-----------------
+- Switched back to vanilla requests, because requests-futures wasn't faster.
+- Breaking change: simplified get_hotc to make one request.
+
+
 1.0.3, 2019-01-14
 -----------------
 - Switched to Poetry.

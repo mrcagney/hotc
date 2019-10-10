@@ -1,14 +1,14 @@
 [tool.poetry]
 name = "hotc"
-version = "1.0.3"
-description = "A Python 3.6+ library to issue asynchronous GET requests to the Heart of the City API to get walking counts for center city Auckland, New Zealand. The API has access to counts from 2012-01-23 to the present."
+version = "2.0.0"
+description = "A Python 3.6+ library to get walking counts for central Auckland, New Zealand from the Heart of the City API. The API has access to counts from 2012-01-23 to the present."
 authors = ["Alex Raichev <araichev@mrcagney.com>"]
 license="MIT"
 
 [tool.poetry.dependencies]
-python = "^3.6"
-requests-futures = "*^0.9"
-pandas = "^0.24"
+python = "^3.6|^3.7"
+pandas = "<1"
+requests = "^2.22"
 
 [tool.poetry.dev-dependencies]
 jupyter = "^1.0"
