@@ -1,17 +1,17 @@
 Heart of the City
 ******************
-A Python 3.6+ library to issue asynchronous GET requests to the Heart of the City API to get walking counts for center city Auckland, New Zealand.
+A Python 3.9+ library to call the Heart of the City API to get walking counts for center city Auckland, New Zealand.
 The API has access to counts from 2012-01-23 to the present.
 
 
 Installation
 =============
-``poetry add --git https://github.com/mrcagney/hotc hotc``
+``poetry add --git https://gitlab.com/mrcagney/hotc hotc``
 
 
 Usage
 ======
-See the Jupyter notebook ``ipynb/examples.ipynb``.
+See the Jupyter notebook ``notebooks/examples.ipynb``.
 
 
 Notes
@@ -28,6 +28,11 @@ Authors
 
 Changes
 ========
+
+2.1.0, 2021-08-09
+-----------------
+- Upgraded to Python 3.9.
+
 
 2.0.0, 2019-10-11
 -----------------
