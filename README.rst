@@ -29,6 +29,11 @@ Authors
 Changes
 ========
 
+2.1.1, 2022-01-20
+-----------------
+- Uncapped dependency versions.
+
+
 2.1.0, 2021-08-09
 -----------------
 - Upgraded to Python 3.9.
