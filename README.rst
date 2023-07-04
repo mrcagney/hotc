@@ -29,6 +29,10 @@ Authors
 Changelog
 =========
 
+2.2.1, 2023-07-04
+-----------------
+- Bugfixed date formatting and boolean inpurt errors introduced in version 2.2.0.
+
 2.2.0, 2023-07-04
 -----------------
 - Updated dependencies.

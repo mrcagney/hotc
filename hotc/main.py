@@ -12,7 +12,7 @@ _ROOT = Path(os.path.abspath(os.path.dirname(__file__)))
 _DATA_DIR = _ROOT / "data"
 COUNTERS = pd.read_csv(_DATA_DIR / "hotc_counters.csv")
 
-DATE_FORMAT = "%Y-%m-%d"
+DATE_FORMAT = "%Y%m%d"
 
 
 def to_df(hotc_data: dict) -> pd.DataFrame:
@@ -100,15 +100,11 @@ def get_hotc(
     - A Heart of the City day runs from 06:00:00 on a given date to
       05:59:59 on the following date.
     """
-    periods = ["day", "week", "month", "year"]
-    if period not in periods:
-        raise ValueError("Period must lie in {!s}".format(periods))
-
     url = "https://www.heartofthecity.co.nz/pedestrian-count/api/reveal"
 
     def parse(response):
         if response.status_code == 200 and response.json():
-            result = parse_hotc(period, response, as_df)
+            result = parse_hotc(period, response, as_df=as_df)
         else:
             result = None
         return result
@@ -116,6 +112,6 @@ def get_hotc(
     return parse(
         rq.get(
             url,
-            params={"method": period, "date": format_date(date)},
+            params={"method": period, "date": format_date(date, date_format)},
         )
     )

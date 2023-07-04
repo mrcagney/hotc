@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hotc"
-version = "2.2.0"
+version = "2.2.1"
 description = "A Python 3.9+ library to get walking counts for central Auckland, New Zealand from the Heart of the City API. The API has access to counts from 2012-01-23 to the present."
 authors = ["Alex Raichev <araichev@mrcagney.com>"]
 license="MIT"
