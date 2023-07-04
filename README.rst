@@ -29,6 +29,12 @@ Authors
 Changelog
 =========
 
+3.0.0, 2023-07-05
+-----------------
+- Changed fields to 'counter_id' and 'counter_name'.
+- Updated counter names to agree with those returned by the API.
+- Improved docstrings.
+
 2.2.1, 2023-07-04
 -----------------
 - Bugfixed date formatting and boolean inpurt errors introduced in version 2.2.0.
