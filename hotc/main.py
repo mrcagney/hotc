@@ -1,22 +1,26 @@
+from __future__ import annotations
 from pathlib import Path
 import os
 import datetime as dt
+from typing import Literal
 
-import requests
+import requests as rq
 import pandas as pd
 
 
 _ROOT = Path(os.path.abspath(os.path.dirname(__file__)))
-_DATA_DIR = _ROOT/"data"
-COUNTERS = pd.read_csv(_DATA_DIR/"hotc_counters.csv")
+_DATA_DIR = _ROOT / "data"
+COUNTERS = pd.read_csv(_DATA_DIR / "hotc_counters.csv")
 
 DATE_FORMAT = "%Y-%m-%d"
 
-def to_df(hotc_data):
+
+def to_df(hotc_data: dict) -> pd.DataFrame:
     """
     Given a dictionary of the form output by the function
     :func:`parse_hotc` with ``as_df=False``,
     convert it into a DataFrame and return the result.
+    Drop rows with NA title / location name.
     """
     frames = []
     period = hotc_data["period"]
@@ -30,18 +34,26 @@ def to_df(hotc_data):
         f[period + "_total_last_year"] = r["totalLastYear"]
         f[period + "_total_average"] = r["totalAverage"]
         frames.append(f)
-    g = pd.concat(frames)
+    g = pd.concat(frames).dropna(subset="location_name")
 
     # Rename some
     del g["label"]
-    g = g.rename(columns={
-        "totalAverage": "total_average",
-        "totalLastYear": "total_last_year",
-    })
+    g = g.rename(
+        columns={
+            "totalAverage": "total_average",
+            "totalLastYear": "total_last_year",
+        }
+    )
 
     return g
 
-def parse_hotc(period, response, as_df=True):
+
+def parse_hotc(
+    period: Literal["day", "week", "month", "year"],
+    response: rq.Response,
+    *,
+    as_df: bool = True,
+) -> dict | pd.DataFrame:
     """
     Given a period (string; one of "day", "week", "month", or "year")
     and a successful Heart of the City API GET response,
@@ -60,7 +72,19 @@ def parse_hotc(period, response, as_df=True):
 
     return result
 
-def get_hotc(date, period, date_format=DATE_FORMAT, as_df=True):
+
+def format_date(date: str, date_format: str = DATE_FORMAT) -> str:
+    """Format date for HOTC API to read"""
+    return dt.datetime.strptime(date, date_format).strftime("%m/%d/%Y")
+
+
+def get_hotc(
+    date: str,
+    period: Literal["day", "week", "month", "year"],
+    date_format=DATE_FORMAT,
+    *,
+    as_df=True,
+) -> dict | pd.DataFrame:
     """
     Issue a GET request to the Heart of the City API to get
     walking counts for the given date (date string in the
@@ -82,11 +106,6 @@ def get_hotc(date, period, date_format=DATE_FORMAT, as_df=True):
 
     url = "https://www.heartofthecity.co.nz/pedestrian-count/api/reveal"
 
-    def format_date(date):
-        """Format date for HOTC API to read"""
-        return dt.datetime.strptime(date, date_format).strftime(
-          "%m/%d/%Y")
-
     def parse(response):
         if response.status_code == 200 and response.json():
             result = parse_hotc(period, response, as_df)
@@ -94,7 +113,9 @@ def get_hotc(date, period, date_format=DATE_FORMAT, as_df=True):
             result = None
         return result
 
-    return parse(requests.get(
-        url,
-        params={"method": period, "date": format_date(date)},
-    ))
+    return parse(
+        rq.get(
+            url,
+            params={"method": period, "date": format_date(date)},
+        )
+    )

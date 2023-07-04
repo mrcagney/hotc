@@ -6,7 +6,7 @@ The API has access to counts from 2012-01-23 to the present.
 
 Installation
 =============
-``poetry add --git https://gitlab.com/mrcagney/hotc hotc``
+``poetry add --git https://github.com/mrcagney/hotc``
 
 
 Usage
@@ -23,11 +23,17 @@ Notes
 
 Authors
 ========
-- Alex Raichev (2017-11-17)
+- Alex Raichev (maintainer), 2017-11-17
 
 
-Changes
-========
+Changelog
+=========
+
+2.2.0, 2023-07-04
+-----------------
+- Updated dependencies.
+- Updated walking counters.
+- Added type hints.
 
 2.1.1, 2022-01-20
 -----------------
