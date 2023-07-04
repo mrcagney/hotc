@@ -20,7 +20,7 @@ def to_df(hotc_data: dict) -> pd.DataFrame:
     Given a dictionary of the form output by the function
     :func:`parse_hotc` with ``as_df=False``,
     convert it into a DataFrame and return the result.
-    Drop rows with NA title / location name.
+    Drop rows with NA title / site name.
     """
     frames = []
     period = hotc_data["period"]
@@ -28,13 +28,13 @@ def to_df(hotc_data: dict) -> pd.DataFrame:
     for r in records:
         f = pd.DataFrame(r["periodValues"])
         f["datetime"] = f["label"].map(pd.to_datetime)
-        f["location_code"] = r["code"]
-        f["location_name"] = r["title"]
+        f["site_id"] = r["code"]
+        f["site_name"] = r["title"]
         f[period + "_total"] = r["total"]
         f[period + "_total_last_year"] = r["totalLastYear"]
         f[period + "_total_average"] = r["totalAverage"]
         frames.append(f)
-    g = pd.concat(frames).dropna(subset="location_name")
+    g = pd.concat(frames).dropna(subset="site_name")
 
     # Rename some
     del g["label"]
