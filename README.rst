@@ -29,6 +29,11 @@ Authors
 Changelog
 =========
 
+3.1.0, 2023-12-18
+-----------------
+- Updated counter locations to agree with `the current ones Heart of the City publishes <https://www.hotcity.co.nz/sites/20180201.prod.hotcity.co.nz/files/2022-08/Pedestrian%20Geodata%20%28Mitchell%20update%29.xlsx>`_.
+- Updated dependencies.
+
 3.0.0, 2023-07-05
 -----------------
 - Changed fields to 'counter_id' and 'counter_name'.

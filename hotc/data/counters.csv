@@ -1,22 +1,22 @@
 counter_id,counter_name,axis_of_measurment,address,latitude,longitude
-CL2,59 High Street,north-south,"59 High Street, Auckland Central, Auckland, New Zealand",-36.848686,174.766039
-CL3,45 Queen Street,north-south,"45 Queen Street, Auckland Central, Auckland, New Zealand",-36.851258,174.764279
+CL2,59 High Street,north-south,"59 High Street, Auckland Central, Auckland, New Zealand",-36.848924,174.766186
+CL3,45 Queen Street,north-south,"45 Queen Street, Auckland Central, Auckland, New Zealand",-36.8449544641791,174.766428644103
 CL4,261 Queen Street,north-south,"261 Queen Street, Auckland Central, Auckland, New Zealand",-36.850792,174.764556
-CL5,210 Queen Street,north-south,"210 Queen Street, Auckland Central, Auckland, New Zealand",-36.848837,174.765597
-CL6,183 K Road,east-west,"183 K Road, Auckland Central, Auckland, New Zealand",-36.85757,174.760141
-CL7,8 Darby Street (NS),north-south,"8 Darby Street, Auckland Central, Auckland, New Zealand",-36.849558,174.764106
-CL8,8 Darby Street (EW),east-west,"8 Darby Street, Auckland Central, Auckland, New Zealand",-36.849564,174.764605
+CL5,210 Queen Street,north-south,"210 Queen Street, Auckland Central, Auckland, New Zealand",-36.848899,174.76541
+CL6,183 K Road,east-west,"183 K Road, Auckland Central, Auckland, New Zealand",-36.857774,174.760123
+CL7,8 Darby Street (NS),north-south,"8 Darby Street, Auckland Central, Auckland, New Zealand",-36.849422,174.764172
+CL8,8 Darby Street (EW),east-west,"8 Darby Street, Auckland Central, Auckland, New Zealand",-36.849422,174.764172
 CL9,Te Ara Tahuhu Walkway,east-west,"Te Ara Tahuhu Walkway, Auckland Central, Auckland, New Zealand",-36.84465,174.769645
-CL10,205 Queen Street,east-west,"205 Queen Street, Auckland Central, Auckland, New Zealand",-36.849339,174.76496
+CL10,205 Queen Street,east-west,"205 Queen Street, Auckland Central, Auckland, New Zealand",-36.848986,174.764784
 CL13,Commerce Street West,north-south,"Commerce Street West, Auckland Central, Auckland, New Zealand",-36.844912,174.768065
-CL14,107 Quay Street,east-west,"107 Quay Street, Auckland Central, Auckland, New Zealand",-36.84284,174.766448
+CL14,107 Quay Street,east-west,"107 Quay Street, Auckland Central, Auckland, New Zealand",-36.843015,174.766494
 CL15,1 Courthouse Lane,north-south,"1 Courthouse Lane, Auckland Central, Auckland, New Zealand",-36.84817,174.76705
-CL17,7 Custom Street East,east-west,"7 Custom Street East, Auckland Central, Auckland, New Zealand",-36.8483,174.7647
-CL18,30 Queen Street,north-south,"30 Queen Street, Auckland Central, Auckland, New Zealand",-36.844891,174.766765
-CL19,150 K Road,east-west,"150 K Road, Auckland Central, Auckland, New Zealand",-36.858145,174.760321
+CL17,7 Custom Street East,east-west,"7 Custom Street East, Auckland Central, Auckland, New Zealand",-36.844722,174.767057
+CL18,30 Queen Street,north-south,"30 Queen Street, Auckland Central, Auckland, New Zealand",-36.84495,174.766575
+CL19,150 K Road,east-west,"150 K Road, Auckland Central, Auckland, New Zealand",-36.857973,174.760382
 CL20,19 Shortland Street,east-west,"19 Shortland Street, Auckland Central, Auckland, New Zealand",-36.846576,174.766946
-CL21,2 High Street,north-south,"2 High Street, Auckland Central, Auckland, New Zealand",-36.846853,174.767005
+CL21,2 High Street,north-south,"2 High Street, Auckland Central, Auckland, New Zealand",-36.846846,174.766855
 CL22,297 Queen Street,north-south,"297 Queen Street, Auckland Central, Auckland, New Zealand",-36.852232,174.763915
 CL23,61 Federal Street,north-south,"61 Federal Street, Auckland Central, Auckland, New Zealand",-36.847964,174.762729
-CL24,188 Quay St Lower Albert (EW),east-west,"188 Quay Street, Auckland Central, Auckland 1010, New Zealand",-36.8429365996144,174.765751543711
-CL25,188 Quay St Lower Albert (NS),north-south,"188 Quay Street, Auckland Central, Auckland 1010, New Zealand",-36.843078039948,174.765856038574
+CL24,188 Quay St Lower Albert (EW),east-west,"188 Quay Street, Auckland Central, Auckland 1010, New Zealand",-36.84306,174.76573
+CL25,188 Quay St Lower Albert (NS),north-south,"188 Quay Street, Auckland Central, Auckland 1010, New Zealand",-36.84306,174.76573
